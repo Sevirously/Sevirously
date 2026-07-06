@@ -23,8 +23,18 @@ btn.onclick = () => {
 const petals = document.querySelectorAll(".petal");
 
 petals.forEach((p) => {
+  // random horizontal position
   p.style.left = Math.random() * 100 + "vw";
-  p.style.animationDuration = (5 + Math.random() * 5) + "s";
-  p.style.fontSize = (16 + Math.random() * 10) + "px";
-  p.style.opacity = Math.random();
+
+  // random speed
+  p.style.animationDuration = (4 + Math.random() * 6) + "s";
+
+  // random size
+  p.style.fontSize = (14 + Math.random() * 16) + "px";
+
+  // random delay so they don't fall at same time
+  p.style.animationDelay = Math.random() * 5 + "s";
+
+  // random transparency
+  p.style.opacity = (0.3 + Math.random() * 0.7);
 });
