@@ -7,6 +7,25 @@ const p = document.getElementById("text");
 const a = document.getElementById("bgm");
 
 btn.onclick = () => {
+
+  /* 💖 HEART EXPLOSION */
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "60vh";
+    heart.style.fontSize = (15 + Math.random() * 15) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 1500);
+  }
+
+  /* 🎁 OPEN LETTER */
   c.classList.add("hidden");
   l.classList.remove("hidden");
   a.play().catch(() => {});
@@ -18,23 +37,12 @@ btn.onclick = () => {
   }, 35);
 };
 
-/* 🌸 PETAL FIX (ADD THIS AT THE VERY BOTTOM) */
-
+/* 🌸 PETALS RANDOMIZER */
 const petals = document.querySelectorAll(".petal");
 
 petals.forEach((p) => {
-  // random horizontal position
   p.style.left = Math.random() * 100 + "vw";
-
-  // random speed
-  p.style.animationDuration = (4 + Math.random() * 6) + "s";
-
-  // random size
-  p.style.fontSize = (14 + Math.random() * 16) + "px";
-
-  // random delay so they don't fall at same time
-  p.style.animationDelay = Math.random() * 5 + "s";
-
-  // random transparency
-  p.style.opacity = (0.3 + Math.random() * 0.7);
+  p.style.animationDuration = (5 + Math.random() * 5) + "s";
+  p.style.fontSize = (16 + Math.random() * 10) + "px";
+  p.style.opacity = Math.random();
 });
