@@ -8,7 +8,7 @@ const a = document.getElementById("bgm");
 
 btn.onclick = () => {
 
-  /* 💖 HEART EXPLOSION */
+  /* 💖 HEARTS */
   for (let i = 0; i < 15; i++) {
     const heart = document.createElement("div");
     heart.className = "heart";
@@ -20,10 +20,25 @@ btn.onclick = () => {
 
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-      heart.remove();
-    }, 1500);
+    setTimeout(() => heart.remove(), 1500);
   }
+
+  /* ✨ SPARKLES */
+  for (let i = 0; i < 25; i++) {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.top = Math.random() * 100 + "vh";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 1000);
+  }
+
+  /* 🌈 SCREEN GLOW */
+  document.body.classList.add("glow");
+  setTimeout(() => document.body.classList.remove("glow"), 1000);
 
   /* 🎁 OPEN LETTER */
   c.classList.add("hidden");
@@ -35,6 +50,17 @@ btn.onclick = () => {
     p.textContent += t[i++] || "";
     if (i > t.length) clearInterval(iv);
   }, 35);
+};
+
+/* 🌸 PETALS */
+const petals = document.querySelectorAll(".petal");
+
+petals.forEach((p) => {
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = (5 + Math.random() * 5) + "s";
+  p.style.fontSize = (16 + Math.random() * 10) + "px";
+  p.style.opacity = Math.random();
+});  }, 35);
 };
 
 /* 🌸 PETALS RANDOMIZER */
