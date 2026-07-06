@@ -16,7 +16,6 @@ btn.onclick = () => {
 
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.top = "60vh";
-    heart.style.fontSize = (15 + Math.random() * 15) + "px";
 
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 1500);
@@ -34,7 +33,44 @@ btn.onclick = () => {
     setTimeout(() => sparkle.remove(), 1000);
   }
 
+  /* 🎇 CONFETTI */
+  for (let i = 0; i < 80; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.background = ["#ff4d88","#ffcc00","#66ffcc","#66a3ff","#ffffff"][Math.floor(Math.random()*5)];
+    confetti.style.animationDuration = (1.5 + Math.random() * 2) + "s";
+
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 2500);
+  }
+
   /* 🌈 GLOW */
+  document.body.classList.add("glow");
+  setTimeout(() => document.body.classList.remove("glow"), 1000);
+
+  /* 🎁 OPEN LETTER */
+  c.classList.add("hidden");
+  l.classList.remove("hidden");
+  a.play().catch(() => {});
+
+  let i = 0;
+  let iv = setInterval(() => {
+    p.textContent += t[i++] || "";
+    if (i > t.length) clearInterval(iv);
+  }, 35);
+};
+
+/* 🌸 PETALS */
+const petals = document.querySelectorAll(".petal");
+
+petals.forEach((p) => {
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = (5 + Math.random() * 5) + "s";
+  p.style.fontSize = (16 + Math.random() * 10) + "px";
+  p.style.opacity = Math.random();
+});  /* 🌈 GLOW */
   document.body.classList.add("glow");
   setTimeout(() => document.body.classList.remove("glow"), 1000);
 
